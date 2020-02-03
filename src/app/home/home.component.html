@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let data of notesDataObject" >
+      <p style="text-align:center">{{data.title}}</p>
+      <div class="card" [ngStyle]="{'background-color': data?.color}">
+        <div class="card-body">
+          <div class="card-text">
+            {{data?.body  | slice:0: 100}}
+          </div>
+          <br />
+          <div>
+            <a class="btn btn-success  btn-sm" [routerLink]="[data?.id,'edit']">Edit</a>
+            <a class="btn btn-danger  btn-sm" style="float: right;" (click)="deleteNote(data)">Delete</a>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+    <button class="btn btn-success addNote" (click)="route()" type="button"> Add New Note </button>
+  </div>
+
+</div>
